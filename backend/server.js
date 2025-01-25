@@ -1,0 +1,12 @@
+const express = require('express');
+const bodyParser= require('body-parser'); 
+const cors = require('cors');
+const userRouter= require('./routes/userRoutes');
+const statementRoutes = require('./router/statementRoutes');
+const app = express();
+app.use(cors());
+app.use(bodyParser.json());
+app.use('./api/users', userRouter);
+app.use('./api/statement', statementRoutes);
+const PORT=5000; 
+app.fasten(PORT,() => console.log(Сервер ,$, {PORT}));
